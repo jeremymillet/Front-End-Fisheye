@@ -33,5 +33,8 @@ function photographerTemplate(data) {
         textContainer.appendChild(prix);
         return (article);
     }
-    return { name, picture,tagline,price,city,country, getUserCardDOM }
+    function getPhotographerHeaderDom() {
+        
+    }
+    return { name, picture,tagline,price,city,country, getUserCardDOM,getPhotographerHeaderDom }
 }
