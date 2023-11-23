@@ -1,17 +1,25 @@
 import { getPhotographers } from "../utils/helper.js"
 
+
 async function filterPhotographersByIdMedia(id,data) {
     const media = data.media
     const filteredPhotographerMedia = media.filter(photographer => photographer.photographerId == id);
-
     return filteredPhotographerMedia 
 }
 async function filterPhotographersByIdinfo(id,data) {
     const info = data.photographers 
     const filteredPhotographerInfo = info.filter(photographer => photographer.id == id);
-
     return filteredPhotographerInfo
 }
+
+async function displayData(info, media) {
+    const photographerModel = photographerTemplate(info);
+    const PhotographerHeaderDom = photographerModel.getPhotographerHeaderDom();
+    media.forEach((media) => {
+        const mediaModel = mediaTemplate(media);
+        const photographerMediaDom= mediaModel.getPhotographerMediaDom();
+    });
+};
 
 async function init() {
     // Récupère les datas des photographes
@@ -19,9 +27,8 @@ async function init() {
     const id = params.get('id');
     const photographers = await getPhotographers();
     const media = await filterPhotographersByIdMedia(id,photographers);
-    const info = await filterPhotographersByIdinfo(id,photographers)
-    console.log(media);
-    console.log(info);
+    const info = await filterPhotographersByIdinfo(id, photographers)
+    displayData(info[0],media)
 }
 
 init()

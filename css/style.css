@@ -136,11 +136,11 @@ h1 {
     align-items: center;
 }
 .photographer_section article div .price {
-    font-size: 9px;
+    font-size: 12px;
     color: #757575;
 }
 .photographer_section article div .tagline {
-    font-size: 10px;
+    font-size: 12px;
     color: black;
 }
 .photographer_section article div .localisation {

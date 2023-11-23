@@ -1,6 +1,6 @@
 function photographerTemplate(data) {
-    const { name, portrait,tagline,price,city,country,id} = data;
-
+    console.log(data);
+    const { name, portrait, tagline, price, city, country, id,image,title,likes } = data;
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
@@ -11,7 +11,7 @@ function photographerTemplate(data) {
         const img = document.createElement('img');
         linkImg.href = `photographer.html?id=${id}`
         img.setAttribute("src", picture);
-        img.setAttribute("alt", name);
+        img.setAttribute("alt", "photo de" + name);
         const h2 = document.createElement('h2');
         const localisation = document.createElement('p');
         const description = document.createElement('p');
@@ -32,9 +32,33 @@ function photographerTemplate(data) {
         textContainer.appendChild(description);
         textContainer.appendChild(prix);
         return (article);
-    }
+    };
+
     function getPhotographerHeaderDom() {
+        const photographersSection = document.querySelector(".photograph-header");
+        const h2 = document.createElement('h2');
+        const localisation = document.createElement('h3');
+        const description = document.createElement('p');
+        const imgContainer = document.createElement('div');
+        const img = document.createElement('img');
+        const textContainer = document.createElement('div');
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", name);
+        imgContainer.classList.add("photograph-header-container-img");
+        textContainer.classList.add("photograph-header-container-text");
+        description.classList.add("tagline");
+        localisation.classList.add('localisation');
+        h2.textContent = name;
+        localisation.textContent = city + ',' + country;
+        description.textContent = tagline;
+        photographersSection.appendChild(textContainer);
+        photographersSection.appendChild(imgContainer);
+        textContainer.appendChild(h2);
+        textContainer.appendChild(localisation);
+        textContainer.appendChild(description);
+        imgContainer.appendChild(img);
         
-    }
-    return { name, picture,tagline,price,city,country, getUserCardDOM,getPhotographerHeaderDom }
+        return (photographersSection)
+    };
+    return { name, picture,tagline,price,city,country, getUserCardDOM, getPhotographerHeaderDom}
 }
