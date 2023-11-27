@@ -38,9 +38,13 @@
     height: 70px;
     border: none;
     background-color: #901C1C;
-    border-radius: 5px;
+    border-radius: 5px ;
     cursor: pointer;
     order: 2;
+}
+#contact_button:hover{
+    background-color: #DB8876;
+   
 }
 .photograph-header-container-img{
     order: 3;
@@ -58,6 +62,34 @@
     transform: scale(1.4);
     transform-origin: center;
 }
+.total-likes-container{
+    position: fixed;
+    bottom: 0px;
+    right: 36px;
+    width: 376px;
+    height: 70px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #DB8876;
+    display: flex;
+    justify-content: space-between;
+    padding: 21px 34px 21px 34px
+}
+.total-likes-container div {
+    display: flex;
+    align-items: center;
+    
+}
+.total-likes-container div img{
+    width: 21px;
+    height: 24px;
+    color:black
+
+}
+.total-likes-container p{
+    font-size: 24px;
+    font-weight: 500;
+}
 .photograph-media{
     display: grid;
     justify-content: center;
@@ -66,12 +98,13 @@
     margin-top: 50px;
     padding: 0px 50px;
 }
-.photograph-media img{
+.photograph-media img,video{
     width:350px;
     height: 300px;
     object-fit: cover;
     border-radius: 5px;
 }
+
 .media-text-container{
     display: flex;
     justify-content: space-between;
@@ -87,7 +120,9 @@
     width: 21px;
     height: 24px;
 }
-
+.like-icon.active svg path { 
+    fill:#901C1C;
+}
 .modal {
     position: fixed;
     top: 50%;

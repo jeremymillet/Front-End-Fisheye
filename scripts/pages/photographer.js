@@ -13,12 +13,14 @@ async function filterPhotographersByIdinfo(id,data) {
 }
 
 async function displayData(info, media) {
-    const photographerModel = photographerTemplate(info);
-    const PhotographerHeaderDom = photographerModel.getPhotographerHeaderDom();
+    let totalLikes = 0;
     media.forEach((media) => {
-        const mediaModel = mediaTemplate(media);
-        const photographerMediaDom= mediaModel.getPhotographerMediaDom();
+        totalLikes += media.likes;
+        const mediaModel = mediaTemplate(media, totalLikes);
+        const photographerMediaDom = mediaModel.getPhotographerMediaDom()
     });
+    const photographerModel = photographerTemplate(info,totalLikes);
+    const PhotographerHeaderDom = photographerModel.getPhotographerHeaderDom();
 };
 
 async function init() {
