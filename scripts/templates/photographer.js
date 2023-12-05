@@ -34,6 +34,8 @@ function photographerTemplate(data,likes) {
     };
 
     function getPhotographerHeaderDom() {
+        const modalName = document.querySelector(".photographer-name");
+        modalName.innerHTML = name;
         const photographersSection = document.querySelector(".photograph-header");
         const h2 = document.createElement('h2');
         const localisation = document.createElement('h3');

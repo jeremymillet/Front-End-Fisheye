@@ -62,6 +62,7 @@
     transform: scale(1.4);
     transform-origin: center;
 }
+
 .total-likes-container{
     position: fixed;
     bottom: 0px;
@@ -90,6 +91,83 @@
     font-size: 24px;
     font-weight: 500;
 }
+.select-menu-container{
+    display: flex;
+    align-items: center;
+    padding: 20px 100px;
+}
+.select-menu-container p {
+    font-size: 18px;
+    font-weight: 700;
+}
+.select-menu {
+    width: 170px;
+    margin-left: 25px;
+}
+.select-btn {
+    color: white;
+    display: flex;
+    height: 55px;
+    background: #901C1C;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.options {
+    width: 170px;
+    opacity: 0;
+    position: absolute;
+    overflow-y: auto;
+    max-height: 295px;
+    padding: 10px;
+    background: #901C1C;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.option {
+    display: flex;
+    height: 55px;
+    cursor: pointer;
+    padding: 0 16px;
+    border-bottom :1px solid white ;
+    align-items: center;
+    background: #901C1C;
+}
+.option:hover {
+    background: #f2f2f2;
+}
+
+.option:hover i {
+    font-size: 25px;
+    margin-right: 12px;
+}
+
+.option-text {
+    font-size: 18px;
+    color: white;
+}
+
+
+.select-btn i {
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+.select-menu.active .select-btn img {
+    transform: rotate(-180deg);
+
+}
+
+.select-menu.active .options {
+    display: block;
+    opacity: 1;
+    z-index: 10;
+}
+
 .photograph-media{
     display: grid;
     justify-content: center;
@@ -123,7 +201,17 @@
 .like-icon.active svg path { 
     fill:#901C1C;
 }
+.overlay{
+    display: none;
+    z-index: 1;
+    position:absolute !important;
+    top: 0;
+    background: rgba(196, 196, 196, 0.40);
+    width: 100%;
+    height: 220%;
+}
 .modal {
+    z-index: 2;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -135,24 +223,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 35px;
+    justify-content: center;
+    padding: 15px 35px 15px 35px;
     margin: auto;
 }
 
 .modal header {
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 0px;
+    height:150px;
 }
-
+.modal header .modal-text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.modal header .modal-img-container{
+    height: 150px;
+    display: flex;
+    align-items: flex-start;
+}
 .modal header img {
     cursor: pointer;
+    margin-top: 20px;
+    
 }
-
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
+.modal header .modal-text-container p {
+    font-size: 50px;
+    font-weight: 400;
+}
+.modal header  h2 {
+    font-size: 50px;
+    font-weight: 400;
 }
 
 form {
@@ -164,23 +267,25 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 30px;
 }
 
 form div {
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-items: self-start;
     margin-bottom: 26px;
 }
 
 form input {
     width: 100%;
-    height: 68px;
+    height: 60px;
     border: none;
     border-radius: 5px;
 }
 #message{
-    height:170px;
+    height:160px;
+}
+.first-name-info,.last-name-info,.email-info,.message-info{
+    height: 24px;
 }

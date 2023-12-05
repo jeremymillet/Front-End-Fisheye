@@ -2,49 +2,80 @@
 <html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fisheye - photographe</title>
   </head>
   <body>
+    <div class="overlay"></div>
     <header>
       <img src="assets/images/logo.png" class="logo" />
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button id="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button id="contact_button" tabindex="1" onclick="displayModal()">
+          Contactez-moi
+        </button>
       </div>
-      <div class="photograph-media">
+      <div class="select-menu-container">
+        <p>Trier par</p>
+        <div class="select-menu">
+          <div class="select-btn">
+            <span class="sBtn-text">filter</span>
+            <img src="assets/icons/arrow-down.svg" alt="">
+          </div>
 
+          <ul class="options">
+            <li class="option">
+              <span class="option-text">Popularité</span>
+            </li>
+            <li class="option">
+              <span class="option-text">Date</span>
+            </li>
+            <li class="option">
+              <span class="option-text">Titre</span>
+            </li>
+          </ul>
+        </div>
       </div>
+      
+      <div class="photograph-media"></div>
+
     </main>
     <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <p class="photographer-name"></p>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+      <div class="modal">
+        <header>
+          <div class="modal-text-container">
+            <h2>Contactez-moi</h2>
+            <p class="photographer-name"></p>
+          </div>
+          <div class="modal-img-container">
+            <img src="assets/icons/close.svg" tabindex="7" onclick="closeModal()"/>
+          </div>
         </header>
-				<form>
-					<div>
-						<label for="prenom">Prénom</label>
-						<input type="text" id="prenom" />
+        <form>
+          <div>
+            <label for="prenom">Prénom</label>
+            <input tabindex="2" type="text" id="prenom" />
             <p class="first-name-info"></p>
             <label for="nom">Nom</label>
-            <input type="text" id="nom">
+            <input tabindex="3" type="text" id="nom" />
             <p class="last-name-info"></p>
             <label for="email">Email</label>
-            <input type="text" id="email">
+            <input tabindex="4" type="text" id="email" />
             <p class="email-info"></p>
             <label for="message">Votre message</label>
-            <input type="text" id="message">
+            <input tabindex="5" type="text" id="message" />
             <p class="message-info"></p>
-					</div>
-          <button type="submit" id="contact_button_submit">Envoyer</button>
-				</form>
-			</div>
-		</div>
+          </div>
+          <button tabindex="6" type="submit" id="contact_button_submit">Envoyer</button>
+        </form>
+      </div>
+    </div>
     <script src="/scripts/templates/photographer.js"></script>
     <script src="/scripts/templates/mediaTemplate.js"></script>
     <script type="module" src="/scripts/utils/helper.js"></script>

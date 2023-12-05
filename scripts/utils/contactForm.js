@@ -3,6 +3,13 @@ const firstName = document.getElementById("prenom");
 const lastName = document.getElementById("nom");
 const email = document.getElementById("email");
 const message = document.getElementById("message");
+const closeImgModal = document.querySelector(".modal-img-container img");
+
+closeImgModal.addEventListener("keydown", (event) => {
+    if (event.keyCode === 13) {
+        closeModal();
+    }
+});
 
 const form = document.querySelector("#contact_modal form");
 form.addEventListener("submit", (e) => {
@@ -15,13 +22,18 @@ form.addEventListener("submit", (e) => {
 
 function displayModal() {
     const modal = document.getElementById("contact_modal");
+    const overlay = document.querySelector(".overlay");
+    overlay.style.display = "flex";
 	modal.style.display = "block";
 }
 
 function closeModal() {
     const modal = document.getElementById("contact_modal");
+    const overlay = document.querySelector(".overlay");
+    overlay.style.display = "none";
     modal.style.display = "none";
 }
+
 
 function champs(input,regex,errorMessage,errorMessageClassName) {
     const status = regex.test(input.value);
