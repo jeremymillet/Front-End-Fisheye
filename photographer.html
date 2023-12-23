@@ -21,30 +21,20 @@
           Contactez-moi
         </button>
       </div>
-      <div class="select-menu-container">
-        <p>Trier par</p>
-        <div class="select-menu">
-          <div class="select-btn">
-            <span class="sBtn-text">filter</span>
-            <img src="assets/icons/arrow-down.svg" alt="">
-          </div>
-
-          <ul class="options">
-            <li class="option">
-              <span class="option-text">Popularité</span>
-            </li>
-            <li class="option">
-              <span class="option-text">Date</span>
-            </li>
-            <li class="option">
-              <span class="option-text">Titre</span>
-            </li>
-          </ul>
+      <div class="filter">
+        <div class="filter-text">
+          <p>Trier par</p>
         </div>
+        <div id="option-container">
+          <div class="popularity option active-filter">Popularité</div>
+          <div class="date option">Date</div>
+          <div class="name option">Titre</div>
+        </div>
+        <button id="toggle">
+          <img src="assets/icons/arrow-down.svg" alt="">
+        </button>
       </div>
-      
       <div class="photograph-media"></div>
-
     </main>
     <div id="contact_modal">
       <div class="modal">
@@ -74,11 +64,25 @@
           </div>
           <button tabindex="6" type="submit" id="contact_button_submit">Envoyer</button>
         </form>
+        <div class="lightbox-container">
+          <button class="close-lightbox"></button>
+          <button class="previous-img"></button>
+          <div class="lightbox">
+            <div class="lightbox-img">
+              <img src="" alt="">
+            </div>
+            <div class="lightbox-text-container">
+              <p class="light-text"></p>
+            </div>
+          </div>
+          <button class="next-img"></button>
+        </div>
       </div>
     </div>
     <script src="/scripts/templates/photographer.js"></script>
     <script src="/scripts/templates/mediaTemplate.js"></script>
     <script type="module" src="/scripts/utils/helper.js"></script>
+    <script type="module" src="/scripts/utils/tri.js"></script>
     <script type="module" src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
