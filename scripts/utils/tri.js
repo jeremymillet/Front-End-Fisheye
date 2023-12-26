@@ -60,7 +60,7 @@ function tri() {
   date.addEventListener("click", sortByDate);
   date.addEventListener("keydown", (e) => {
     if (e.keyCode === 13) {
-      sortByName();
+      sortByDate();
     }
   });
 
@@ -86,7 +86,7 @@ function tri() {
   popularity.addEventListener("click", sortByPopularity);
   popularity.addEventListener("keydown", (e) => {
     if (e.keyCode === 13) {
-      sortByName();
+      sortByPopularity();
     }
   });
   sortByPopularity();

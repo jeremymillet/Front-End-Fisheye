@@ -1,10 +1,11 @@
-function photographerTemplate(data,likes) {
+function photographerTemplate(data) {
     const { name, portrait, tagline, price, city, country, id } = data;
     const picture = `assets/photographers/${portrait}`;
-    const totalLikes = likes
+    
     function getUserCardDOM() {
         const article = document.createElement('article');
         const linkImg = document.createElement('a');
+        linkImg.setAttribute("aria-label", "aller voir les photos de " + name);
         const imgContainer = document.createElement('div');
         const textContainer = document.createElement('div');
         const img = document.createElement('img');

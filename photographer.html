@@ -13,11 +13,11 @@
   <body>
     <div class="overlay"></div>
     <header>
-      <img src="assets/images/logo.png" alt="fisheye logo" class="logo" />
+      <a href="index.html" aria-label="revenir à l'accueil"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/></a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button id="contact_button" tabindex="1" onclick="displayModal()">
+        <button id="contact_button" tabindex="1" onclick="displayModal()">  
           Contactez-moi
         </button>
       </div>
@@ -26,11 +26,11 @@
           <p>Trier par</p>
         </div>
         <div id="option-container">
-          <div class="popularity option active-filter" tabindex="0" >Popularité</div>
-          <div class="date option" tabindex="1" >Date</div>
-          <div class="name option" tabindex="2" >Titre</div>      
+          <div class="popularity option active-filter" tabindex="3" >Popularité</div>
+          <div class="date option" tabindex="4" >Date</div>
+          <div class="name option" tabindex="5" >Titre</div>      
         </div>
-        <button id="toggle">
+        <button id="toggle" tabindex="2">
           <img src="assets/icons/arrow-down.svg" alt="">
         </button>
       </div>
@@ -42,7 +42,7 @@
         </button>
         <div id="lightbox">
           <div id="lightbox-img">
-            <img src="" alt="">
+            <img src="" alt="photo dans la lightbox">
             <video src=""></video>
           </div>
           <div id="lightbox-text-container">
@@ -64,25 +64,25 @@
             <p class="photographer-name"></p>
           </div>
           <div class="modal-img-container">
-            <img src="assets/icons/close.svg" tabindex="7" onclick="closeModal()"/>
+            <img src="assets/icons/close.svg" tabindex="11" onclick="closeModal()" alt="fermez la modal"/>
           </div>
         </header>
         <form>
           <div>
             <label for="prenom">Prénom</label>
-            <input tabindex="2" type="text" id="prenom" />
+            <input tabindex="6" type="text" id="prenom" />
             <p class="first-name-info"></p>
             <label for="nom">Nom</label>
-            <input tabindex="3" type="text" id="nom" />
+            <input tabindex="7" type="text" id="nom" />
             <p class="last-name-info"></p>
             <label for="email">Email</label>
-            <input tabindex="4" type="text" id="email" />
+            <input tabindex="8" type="text" id="email" />
             <p class="email-info"></p>
             <label for="message">Votre message</label>
-            <input tabindex="5" type="text" id="message" />
+            <input tabindex="9" type="text" id="message" />
             <p class="message-info"></p>
           </div>
-          <button tabindex="6" type="submit" id="contact_button_submit">Envoyer</button>
+          <button tabindex="10" type="submit" id="contact_button_submit">Envoyer</button>
         </form>
       </div>
     </div>
