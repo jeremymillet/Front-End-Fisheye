@@ -96,6 +96,7 @@ function mediaTemplate(data) {
       video.setAttribute("src", photographVod);
       video.setAttribute("alt", title);
       video.setAttribute("data", date);
+      video.classList.add("media");
 
       const videoContainer = document.createElement("div");
       videoContainer.appendChild(video);
@@ -108,6 +109,7 @@ function mediaTemplate(data) {
       img.setAttribute("src", photographImg);
       img.setAttribute("alt", title);
       img.setAttribute("data", date);
+      img.classList.add("media");
 
       const pictureContainer = document.createElement("div");
       pictureContainer.classList.add("media-picture-container");

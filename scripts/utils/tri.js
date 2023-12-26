@@ -58,6 +58,11 @@ function tri() {
     displayMedia(mediasTries);
   }
   date.addEventListener("click", sortByDate);
+  date.addEventListener("keydown", (e) => {
+    if (e.keyCode === 13) {
+      sortByName();
+    }
+  });
 
   // Event listener for name filter
   function sortByName() {
@@ -66,6 +71,11 @@ function tri() {
     displayMedia(mediasTries);
   }
   name.addEventListener("click", sortByName);
+  name.addEventListener("keydown", (e) => {
+    if (e.keyCode === 13) {
+      sortByName();
+    }
+  });
 
   // Event listener for popularity filter
   function sortByPopularity() {
@@ -74,6 +84,11 @@ function tri() {
     displayMedia(mediasTries);
   }
   popularity.addEventListener("click", sortByPopularity);
+  popularity.addEventListener("keydown", (e) => {
+    if (e.keyCode === 13) {
+      sortByName();
+    }
+  });
   sortByPopularity();
 }
 

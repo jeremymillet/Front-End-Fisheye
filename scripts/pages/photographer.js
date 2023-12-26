@@ -1,5 +1,6 @@
 import { getPhotographers, displayMedia, allLikes } from "../utils/helper.js";
 import tri from "../utils/tri.js"
+import lightbox from "../utils/lightbox.js";
 
 
 async function filterPhotographersByIdMedia(id, data) {
@@ -34,6 +35,7 @@ async function init() {
   displayData(info[0], media);
   tri();
   allLikes();
+  lightbox();
 }
 
 init();

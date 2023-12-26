@@ -96,6 +96,7 @@
     display: flex;
     margin-left: 100px;
     margin-top: 71px;
+    z-index: 3;
 }
 .filter-text{
     display: flex;
@@ -289,6 +290,57 @@ form input {
     height: 24px;
 }
 
-.lightbox-container{
+#lightbox-container{
+    position: fixed;
+    top: 0px;
+    padding: 25px 0px;
     display:none;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    background-color: #FAFAFA;
+}
+#lightbox{
+    width: 1050px;
+}
+#lightbox-img{
+    width: 1050px;
+    height: 900px;
+}
+#lightbox-img img{
+    width: 100%;
+    height: 900px;
+    max-height:900px;
+    object-fit: cover;
+}
+#lightbox-img video {
+    width: 100%;
+    height: 900px;
+    max-height: 900px;
+    object-fit: cover;
+    position: relative;
+    top: -900px;
+}
+#lightbox-text{
+    font-size: 24px;
+    color: #901C1C;
+}
+#close-lightbox{
+    position: relative;
+    bottom: 440px;
+    right: 90px;
+    width: 72px;
+    height: 72px;
+    border: none;
+    background-color: transparent;
+}
+#previous-img,#next-img{
+    width:96px;
+    height:96px;
+    border: none;
+    background-color: transparent;
+    z-index: 4;
 }

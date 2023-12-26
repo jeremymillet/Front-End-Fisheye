@@ -26,9 +26,9 @@
           <p>Trier par</p>
         </div>
         <div id="option-container">
-          <div class="popularity option active-filter">Popularité</div>
-          <div class="date option">Date</div>
-          <div class="name option">Titre</div>
+          <div class="popularity option active-filter" tabindex="0" >Popularité</div>
+          <div class="date option" tabindex="1" >Date</div>
+          <div class="name option" tabindex="2" >Titre</div>      
         </div>
         <button id="toggle">
           <img src="assets/icons/arrow-down.svg" alt="">
@@ -36,6 +36,26 @@
       </div>
       <div class="photograph-media"></div>
     </main>
+    <div id="lightbox-container">
+        <button id="previous-img">
+          <img src="assets/icons/previous.svg" alt="">
+        </button>
+        <div id="lightbox">
+          <div id="lightbox-img">
+            <img src="" alt="">
+            <video src=""></video>
+          </div>
+          <div id="lightbox-text-container">
+            <p id="lightbox-text"></p>
+          </div>
+        </div>
+        <button id="next-img">
+          <img src="assets/icons/next.svg" alt="">
+        </button>
+        <button id="close-lightbox">
+          <img src="assets/icons/close-lightbox.svg" alt="">
+        </button>
+      </div>
     <div id="contact_modal">
       <div class="modal">
         <header>
@@ -64,19 +84,6 @@
           </div>
           <button tabindex="6" type="submit" id="contact_button_submit">Envoyer</button>
         </form>
-        <div class="lightbox-container">
-          <button class="close-lightbox"></button>
-          <button class="previous-img"></button>
-          <div class="lightbox">
-            <div class="lightbox-img">
-              <img src="" alt="">
-            </div>
-            <div class="lightbox-text-container">
-              <p class="light-text"></p>
-            </div>
-          </div>
-          <button class="next-img"></button>
-        </div>
       </div>
     </div>
     <script src="/scripts/templates/photographer.js"></script>
@@ -84,6 +91,7 @@
     <script type="module" src="/scripts/utils/helper.js"></script>
     <script type="module" src="/scripts/utils/tri.js"></script>
     <script type="module" src="/scripts/pages/photographer.js"></script>
+    <script type="module" src="/scripts/utils/lightbox.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

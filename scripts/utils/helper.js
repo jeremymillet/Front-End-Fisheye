@@ -1,3 +1,5 @@
+import lightbox from "../utils/lightbox.js";
+
 export async function getPhotographers() {
   try {
     const request = await fetch("../../data/photographers.json");
@@ -12,7 +14,7 @@ export function getDomElement() {
   const mediasFromDom = Array.from(domMedias);
 
   const tableauObjets = mediasFromDom.map(function (element) {
-    let image, video,likeStatus;
+    let image, video, likeStatus;
     if (element.querySelector("img") === null) {
       video = element
         .querySelector("video")
@@ -30,11 +32,14 @@ export function getDomElement() {
     const date = element
       .querySelector(".media-picture-container :first-child")
       .getAttribute("data");
-    if (element.querySelector(".media-picture-container .like-container .like-icon").classList.contains("active")) {
+    if (
+      element
+        .querySelector(".media-picture-container .like-container .like-icon")
+        .classList.contains("active")
+    ) {
       likeStatus = "active";
-    }
-    else {
-      likeStatus = "none"
+    } else {
+      likeStatus = "none";
     }
     const nouvelObjet = {
       image,
@@ -42,7 +47,7 @@ export function getDomElement() {
       title,
       likes,
       date,
-      likeStatus
+      likeStatus,
     };
     return nouvelObjet;
   });
@@ -55,6 +60,7 @@ export function displayMedia(media) {
     const mediaModel = mediaTemplate(media);
     const photographerMediaDom = mediaModel.getPhotographerMediaDom();
   });
+  lightbox();
 }
 export function allLikes() {
   const domLikes = document.querySelectorAll(".photo-likes");
