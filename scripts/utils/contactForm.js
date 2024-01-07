@@ -1,8 +1,8 @@
 
-const firstName = document.getElementById("prenom");
-const lastName = document.getElementById("nom");
-const email = document.getElementById("email");
-const message = document.getElementById("message");
+const firstName = document.getElementById("first-name-input");
+const lastName = document.getElementById("last-name-input");
+const email = document.getElementById("email-input");
+const message = document.getElementById("message-input");
 const closeImgModal = document.querySelector(".modal-img-container img");
 
 closeImgModal.addEventListener("keydown", (event) => {

@@ -9,13 +9,21 @@ function tri() {
   const name = document.querySelector(".name");
   const popularity = document.querySelector(".popularity");
   const options = document.querySelectorAll(".option");
+  const optionContainer = document.getElementById("option-container");
 
   // Event listener for toggle button
   toggle.addEventListener("click", () => {
     toggle.classList.toggle("active");
-
+    if (toggle.classList.contains("active")) { 
+      optionContainer.setAttribute("aria-expanded", "true");
+    }
+    else {
+      optionContainer.setAttribute("aria-expanded", "false");
+    }
+    
     options.forEach(function (option) {
       option.classList.toggle("visible", toggle.classList.contains("active"));
+
     });
   });
   // Helper function to set filter state
@@ -23,9 +31,12 @@ function tri() {
     toggle.classList.remove("active");
     options.forEach(function (option) {
       option.classList.remove("visible");
+      
+      option.removeAttribute("aria-selected")
     });
 
     activeFilter.classList.add("active-filter");
+    activeFilter.setAttribute("aria-selected", "true");
     inactiveFilters.forEach((filter) =>
       filter.classList.remove("active-filter")
     );

@@ -4,17 +4,12 @@ import { getDomElement } from "../utils/helper.js";
 function lightbox() {
   function openLightbox() {
     document.getElementById("lightbox-container").style.display = "flex";
-    document.getElementById("lightbox-container").addEventListener("keydown", (event) => {
-      console.log("test");
-      test(event)
-    });
+    document.addEventListener("keydown", test)
   }
 
    function closeLightbox() {
      document.getElementById("lightbox-container").style.display = "none";
-     document.getElementById("lightbox-container").removeEventListener("keydown", (e) => {
-       test(event)
-     } );
+     document.removeEventListener("keydown", test)
   }
 
   let indexCourant = 0;
@@ -50,15 +45,16 @@ function lightbox() {
   function afficherObjet(index) {
     const objetCourant = domElement[index];
     if (objetCourant) {
+      const mediaVideo = document.querySelector("#lightbox-img video");
       if (objetCourant.image === undefined) {
-        document.querySelector("#lightbox-img video").src = `assets/photographers/media/${objetCourant.video}`;
+        mediaVideo.src = `assets/photographers/media/${objetCourant.video}`;
+        mediaVideo.setAttribute("controls", true);
         document.querySelector("#lightbox-img img").src = "";
       }
        else {
          document.querySelector("#lightbox-img img").src = `assets/photographers/media/${objetCourant.image}`;
-         document.querySelector(
-           "#lightbox-img video"
-         ).src = "";
+        mediaVideo.src = "";
+        mediaVideo.removeAttribute("controls");
        }
        document.querySelector("#lightbox-text").innerText = objetCourant.title;
        // Affichez l'objet où vous le souhaitez dans votre interface utilisateur
@@ -67,6 +63,13 @@ function lightbox() {
        indexCourant = domElement.length;
     }
   }
+  function hundleClickMedia(event) {
+    openLightbox();
+    const name = event.target.getAttribute("alt");
+    const indexTrouve = domElement.findIndex((objet) => objet.title === name);
+    indexCourant = indexTrouve;
+    afficherObjet(indexCourant);
+  }
   document.getElementById("previous-img").addEventListener("click", previous)
   document.getElementById("next-img").addEventListener("click", next);
 
@@ -74,19 +77,13 @@ function lightbox() {
    document
      .getElementById("close-lightbox")
      .addEventListener("click", closeLightbox);
+  console.log("test");
 
    document
      .querySelectorAll(".media")
      .forEach((element) => {
-       element.addEventListener("click", () => {
-         openLightbox();
-         const name = element.getAttribute("alt");
-         const indexTrouve = domElement.findIndex(
-           (objet) => objet.title === name
-         );
-         indexCourant = indexTrouve
-         afficherObjet(indexCourant);
-       });;
+       element.removeEventListener("click", hundleClickMedia)
+       element.addEventListener("click", hundleClickMedia)
      });
 }
 export default lightbox;

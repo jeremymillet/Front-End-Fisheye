@@ -17,7 +17,7 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button id="contact_button" tabindex="1" onclick="displayModal()">  
+        <button id="contact_button" aria-label="Ouvrir le formulaire de contact" tabindex="1" onclick="displayModal()">  
           Contactez-moi
         </button>
       </div>
@@ -25,19 +25,19 @@
         <div class="filter-text">
           <p>Trier par</p>
         </div>
-        <div id="option-container">
-          <div class="popularity option active-filter" tabindex="3" >Popularité</div>
-          <div class="date option" tabindex="4" >Date</div>
-          <div class="name option" tabindex="5" >Titre</div>      
+        <div id="option-container" role="listbox" >
+          <div class="popularity option active-filter" tabindex="3" role="button" >Popularité</div>
+          <div class="date option" tabindex="4" role="button" >Date</div>
+          <div class="name option" tabindex="5" role="button" >Titre</div>      
         </div>
-        <button id="toggle" tabindex="2">
-          <img src="assets/icons/arrow-down.svg" alt="">
+        <button id="toggle" tabindex="2" role="button">
+          <img src="assets/icons/arrow-down.svg" alt="ouvrir les filtres">
         </button>
       </div>
       <div class="photograph-media"></div>
     </main>
-    <div id="lightbox-container">
-        <button id="previous-img">
+    <div id="lightbox-container" aria-label="image closeup view">
+        <button id="previous-img" aria-label="image précédente">
           <img src="assets/icons/previous.svg" alt="">
         </button>
         <div id="lightbox">
@@ -49,10 +49,10 @@
             <p id="lightbox-text"></p>
           </div>
         </div>
-        <button id="next-img">
+        <button id="next-img" aria-label="image suivante">
           <img src="assets/icons/next.svg" alt="">
         </button>
-        <button id="close-lightbox">
+        <button id="close-lightbox" aria-label="fermez la fenêtre">
           <img src="assets/icons/close-lightbox.svg" alt="">
         </button>
       </div>
@@ -64,25 +64,25 @@
             <p class="photographer-name"></p>
           </div>
           <div class="modal-img-container">
-            <img src="assets/icons/close.svg" tabindex="11" onclick="closeModal()" alt="fermez la modal"/>
+            <img src="assets/icons/close.svg" tabindex="11" onclick="closeModal()" alt="fermez le formulaire" />
           </div>
         </header>
         <form>
           <div>
-            <label for="prenom">Prénom</label>
-            <input tabindex="6" type="text" id="prenom" />
+            <label for="first-name" id="first-name">Prénom</label>
+            <input tabindex="6" type="text" name="first-name" id="first-name-input" aria-labelledby="first-name"/>
             <p class="first-name-info"></p>
-            <label for="nom">Nom</label>
-            <input tabindex="7" type="text" id="nom" />
+            <label for="last-name" id="last-name">Nom</label>
+            <input tabindex="7" type="text" name="last-name" id="last-name-input" aria-labelledby="last-name" />
             <p class="last-name-info"></p>
-            <label for="email">Email</label>
-            <input tabindex="8" type="text" id="email" />
+            <label for="email" id="email">Email</label>
+            <input tabindex="8" type="text" name="email" id="email-input" aria-labelledby="email" />
             <p class="email-info"></p>
-            <label for="message">Votre message</label>
-            <input tabindex="9" type="text" id="message" />
+            <label for="message" id="message">Votre message</label>
+            <input tabindex="9" type="text" name="message" id="message-input" aria-labelledby="message"/>
             <p class="message-info"></p>
           </div>
-          <button tabindex="10" type="submit" id="contact_button_submit">Envoyer</button>
+          <button tabindex="10" type="submit" id="contact_button_submit" aria-label="Send">Envoyer</button>
         </form>
       </div>
     </div>

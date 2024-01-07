@@ -39,6 +39,7 @@ function mediaTemplate(data) {
 
     const likeContainer = document.createElement("div");
     likeContainer.classList.add("like-container");
+    likeContainer.setAttribute("aria-label", "likes");
     likeContainer.appendChild(nbLikes);
     likeContainer.appendChild(likeIcon);
     likeContainer.addEventListener("keydown", (event) => {
@@ -101,6 +102,7 @@ function mediaTemplate(data) {
       const videoContainer = document.createElement("div");
       videoContainer.appendChild(video);
       videoContainer.appendChild(textcontainerMedia);
+      videoContainer.setAttribute("aria-label", "ouvrir la lightbox");
       videoContainer.classList.add("media-picture-container");
 
       photographersSectionMedia.appendChild(videoContainer);
@@ -113,6 +115,7 @@ function mediaTemplate(data) {
 
       const pictureContainer = document.createElement("div");
       pictureContainer.classList.add("media-picture-container");
+      pictureContainer.setAttribute("aria-label","ouvrir la lightbox");
       pictureContainer.appendChild(img);
       pictureContainer.appendChild(textcontainerMedia);
 
