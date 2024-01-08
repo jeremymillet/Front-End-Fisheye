@@ -49,11 +49,13 @@ function lightbox() {
       if (objetCourant.image === undefined) {
         mediaVideo.src = `assets/photographers/media/${objetCourant.video}`;
         mediaVideo.setAttribute("controls", true);
-        document.querySelector("#lightbox-img img").src = "";
+        mediaVideo.style.display = "flex";
+        document.querySelector("#lightbox-img img").style.display = "none";
       }
        else {
-         document.querySelector("#lightbox-img img").src = `assets/photographers/media/${objetCourant.image}`;
-        mediaVideo.src = "";
+        document.querySelector("#lightbox-img img").src = `assets/photographers/media/${objetCourant.image}`;
+        document.querySelector("#lightbox-img img").style.display = "flex";
+        mediaVideo.style.display = "none";
         mediaVideo.removeAttribute("controls");
        }
        document.querySelector("#lightbox-text").innerText = objetCourant.title;

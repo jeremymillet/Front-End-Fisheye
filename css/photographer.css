@@ -283,7 +283,7 @@ form input {
     border: none;
     border-radius: 5px;
 }
-#message{
+#message-input{
     height:160px;
 }
 .first-name-info,.last-name-info,.email-info,.message-info{
@@ -322,7 +322,6 @@ form input {
     max-height: 900px;
     object-fit: cover;
     position: relative;
-    top: -900px;
 }
 #lightbox-text{
     font-size: 24px;
