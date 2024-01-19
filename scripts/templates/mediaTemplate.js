@@ -18,8 +18,7 @@ function mediaTemplate(data) {
   }
 
   function getPhotographerMediaDom() {
-    const photographersSectionMedia =
-      document.querySelector(".photograph-media");
+    const photographersSectionMedia = document.querySelector(".photograph-media");
     const nbLikes = document.createElement("p");
     nbLikes.classList.add("photo-likes");
     nbLikes.textContent = likes;
@@ -99,12 +98,14 @@ function mediaTemplate(data) {
       video.setAttribute("alt", title);
       video.setAttribute("data", date);
       video.classList.add("media");
+      video.setAttribute("tabindex", "11");
 
       const videoContainer = document.createElement("div");
       videoContainer.appendChild(video);
       videoContainer.appendChild(textcontainerMedia);
       videoContainer.setAttribute("aria-label", "ouvrir la lightbox");
       videoContainer.classList.add("media-picture-container");
+
 
       photographersSectionMedia.appendChild(videoContainer);
     } else {
@@ -113,10 +114,11 @@ function mediaTemplate(data) {
       img.setAttribute("alt", title);
       img.setAttribute("data", date);
       img.classList.add("media");
+      img.setAttribute("tabindex", "11");
 
       const pictureContainer = document.createElement("div");
       pictureContainer.classList.add("media-picture-container");
-      pictureContainer.setAttribute("aria-label","ouvrir la lightbox");
+      pictureContainer.setAttribute("aria-label", "ouvrir la lightbox");
       pictureContainer.appendChild(img);
       pictureContainer.appendChild(textcontainerMedia);
 

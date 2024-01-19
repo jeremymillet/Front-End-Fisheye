@@ -4,24 +4,31 @@ import { getDomElement } from "../utils/helper.js";
 function lightbox() {
   function openLightbox() {
     document.getElementById("lightbox-container").style.display = "flex";
-    document.addEventListener("keydown", test)
+    document.addEventListener("keydown", arrowNextPrevious);
+    document.addEventListener("keydown", closeModalKeyboard);
   }
 
    function closeLightbox() {
      document.getElementById("lightbox-container").style.display = "none";
-     document.removeEventListener("keydown", test)
+     document.removeEventListener("keydown", arrowNextPrevious);
+     document.removeEventListener("keydown", closeModalKeyboard);
   }
 
   let indexCourant = 0;
 
   const domElement = getDomElement();
   
-  function test(event) {
+  function arrowNextPrevious(event) {
     if (event.keyCode === 37) {
       previous();
     }
     else if (event.keyCode === 39) {
       next()
+    }
+  }
+  function closeModalKeyboard(event) {
+    if (event.keyCode === 27) {
+      closeLightbox();
     }
   }
   function next() {
@@ -72,6 +79,11 @@ function lightbox() {
     indexCourant = indexTrouve;
     afficherObjet(indexCourant);
   }
+  function hundleClickEnterMedia(event) {
+    if (event.keyCode === 13) {
+      hundleClickMedia(event);
+    } 
+  }
   document.getElementById("previous-img").addEventListener("click", previous)
   document.getElementById("next-img").addEventListener("click", next);
 
@@ -79,13 +91,12 @@ function lightbox() {
    document
      .getElementById("close-lightbox")
      .addEventListener("click", closeLightbox);
-  console.log("test");
 
    document
      .querySelectorAll(".media")
      .forEach((element) => {
-       element.removeEventListener("click", hundleClickMedia)
-       element.addEventListener("click", hundleClickMedia)
+       element.addEventListener("click", hundleClickMedia)    
+       element.addEventListener("keydown", hundleClickEnterMedia)     
      });
 }
 export default lightbox;

@@ -3,6 +3,7 @@ import tri from "../utils/tri.js"
 import lightbox from "../utils/lightbox.js";
 
 
+
 async function filterPhotographersByIdMedia(id, data) {
   const media = data.media;
   const filteredPhotographerMedia = media.filter(
@@ -22,7 +23,7 @@ async function filterPhotographersByIdinfo(id, data) {
 async function displayData(info, media) {
   displayMedia(media);
   const photographerModel = photographerTemplate(info);
-  const PhotographerHeaderDom = photographerModel.getPhotographerHeaderDom();
+  photographerModel.getPhotographerHeaderDom();
 }
 
 async function init() {

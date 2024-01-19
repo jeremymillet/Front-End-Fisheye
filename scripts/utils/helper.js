@@ -58,7 +58,7 @@ export function displayMedia(media) {
   photographersSectionMedia.innerHTML = "";
   media.forEach((media) => {
     const mediaModel = mediaTemplate(media);
-    const photographerMediaDom = mediaModel.getPhotographerMediaDom();
+    mediaModel.getPhotographerMediaDom();
   });
   lightbox();
 }
